@@ -22,7 +22,7 @@ def main():
     for line in data:
         line = line.split(" ")
 
-	    if "#" in line:
+	    if "#" in line[0]:
 		pass
 	    elif line[0] == "":
 		new_data.write("\t".join(["*"]*3) + "\n")
@@ -40,6 +40,8 @@ def main():
 	t_seq_length = 0
 	e_seq = 0
 	min_seq = 100
+        
+        new_data = open(args.output_file, 'r')
 	for index, row in df.iterrows():
 
 	    if row["POSITION"] == "*":
