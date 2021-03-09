@@ -1,4 +1,4 @@
-# Experimenting With Embeddings #
+# Neural Network Project #
 
 This project consists of scripts for our  Neural Network project.
 
