@@ -13,9 +13,9 @@ This project consists of scripts for our  Neural Network project.
 
 ## Table of Content:
 1. data
-   sample.conll
-2. src
-   data_preprocess.py
+    sample.conll
+2. src 
+    data_preprocess.py
 3. environment.yml
 4. README.md
 5. run.sh
@@ -40,20 +40,27 @@ conda env update --file environment.yaml
 use help to see how to run script.
 
 ```
-python data_preprocess -h
+python src/data_preprocess -h
 ```
-
-```
-usage: data_preprocess.py [-h] conll output_file
-
 conll format preprocessing
 
 positional arguments:
   conll        conll format file
   output_file  name of the output file to be saved
+  output_info  name of the output file to be save information about data
 
 optional arguments:
   -h, --help   show this help message and exit
+
+```
+
+
+
+
+
+
+
+
 
 ```
 
