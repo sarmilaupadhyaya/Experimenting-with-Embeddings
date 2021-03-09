@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 data_preprocess.py all.txt sample.tsv
+python3 data_preprocess.py sample.conll sample.tsv sample.info
