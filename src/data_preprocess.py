@@ -37,7 +37,7 @@ def main():
     data = open(args.conll, "r").readlines()
     new_data = open(args.output_file, 'w')
     word_tag = []
-
+    new_data.write("word"+"\t"+"tag"+"\n")
     for line in data:
         line = line.split(" ")
         if "#" in line[0]:
@@ -57,24 +57,28 @@ def main():
     tag_dictionary = defaultdict()        
     new_data = open(args.output_file, 'r').readlines()
 
-    for line in new_data:
-        line = line.split("\t")
-        if line[0] == "*":
-            t_seq += 1
-            if e_seq > max_seq:
-                max_seq = e_seq
-            if e_seq < min_seq:
-                min_seq = e_seq
-            e_seq = 0
-        
+    for i,line in enumerate(new_data):
+        if i==0:
+            pass
         else:
-            if line[2] in tag_dictionary:
-                tag_dictionary[line[2]] += 1
+
+            line = line.split("\t")
+            if line[0] == "*":
+                t_seq += 1
+                if e_seq > max_seq:
+                    max_seq = e_seq
+                if e_seq < min_seq:
+                    min_seq = e_seq
+                e_seq = 0
+        
             else:
-                tag_dictionary[line[2]] = 1
-            e_seq += 1
-            t_seq_length += 1
-    
+                if line[2] in tag_dictionary:
+                    tag_dictionary[line[2]] += 1
+                else:
+                    tag_dictionary[line[2]] = 1
+                e_seq += 1
+                t_seq_length += 1
+     
     mean_seq_length = t_seq_length/(t_seq+1)
 
     info_data = open(args.output_info, 'w')
