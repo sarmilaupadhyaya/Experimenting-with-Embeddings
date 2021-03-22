@@ -37,7 +37,7 @@ def main():
     data = open(args.conll, "r").readlines()
     new_data = open(args.output_file, 'w')
     word_tag = []
-    new_data.write("word"+"\t"+"tag"+"\n")
+    new_data.write("id"+"\t" +"word"+"\t"+"tag"+"\n")
     for line in data:
         line = line.split(" ")
         if "#" in line[0]:
