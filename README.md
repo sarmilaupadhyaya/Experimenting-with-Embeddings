@@ -1,31 +1,26 @@
-# Neural Network Project #
-
-This project consists of scripts for our  Neural Network project.
-
-- Part 1:
-  - Data Preprocessing
-  	reading conll format and extracting only pos and word and its position.
-  	analysing the data, getting minimum length of sentence, total sentences, mean length of sentence and distribution of data for each tag.
-
-- Part 2:
- - Not done
+# Implementing Pretrained BERT EMBEDDING layer for Part of Speech tagging using differnt models and their comparision
 
 
-## Table of Content:
-1. data
-    sample.conll
-2. src 
-    data_preprocess.py
-3. environment.yml
-4. README.md
-5. run.sh
+## Table of Contents
+
+- [INTRODUCTION](#INTRODUCTION): information about this project
+- [SETUP](#SETUP): How to set up the project
+- [PROJECT STRUCTURE](PROJECT STRUCTURE): File structure of project
+- STEPS TOWARDS TAGGING(#STEPS TOWARDS TAGGING):
+- - [Data Preprocessing](##Data-Preprocessing): POS extraction, aggregation
+- - [Tokenization & Embedding](##Tokenization-&-Embedding): embedding creation
+- - [Models](##Models): training
+
+## INTRODUCTION
+
+This is the project submitted to Neural Network class of winter 2020. It is an implementation of sequence labelling task for english sentences. We preprocess the data, extract the embedding using bert pretrained model and tokenizer then train the model in different architecture like RNN, LSTM, GRU and BILSTM. The main research idea is to compare the performance of model with each other and also analyse the effect of changing hyperparameters in these model.
 
 
-## Virtual Environment Creation
+# SETUP
 
 - using pip
 ```
-virtualenv <envname> 
+virtualenv <envname>
 pip install -r environment.yaml
 ```
 
@@ -34,38 +29,34 @@ pip install -r environment.yaml
 conda env update --file environment.yaml
 ```
 
-# Modules
-
-## DATA PREPROCESSING
-use help to see how to run script.
-
-```
-python src/data_preprocess -h
-```
-conll format preprocessing
-
-positional arguments:
-  conll        conll format file
-  output_file  name of the output file to be saved
-  output_info  name of the output file to be save information about data
-
-optional arguments:
-  -h, --help   show this help message and exit
-
-```
+We haven't used the GPU so this project works on CPU only. But modification can be done to use GPU which shall be implemented in further days in the same REPO.
 
 
 
+#STEPS TOWARDS TAGGING
+Here are four tasks performed in this project. You can run them individually or at once. 
 
+## Data Preprocessing
 
+- This step concatenate all files into one,
+Script is: `cat data/ontonetes-4.0/*.gold_conll > data/all.conll`. Remember the conll file should be inside data/ontonetes-4.0
 
+- Then it extracts the word id, word and respective tag for it.
+- Finally, write the analysis of the data in sample.info file inside data
 
-
-
-```
-
-	- Run script as:
+The step 1 was done manually then for step 2 and 3 we run the script as:
 
 ```
 ./run.sh
 ```
+
+The parameter to be passed can be edited inside the bash script above. Also, you can find information about arguments to be passed as follow:
+
+```
+python src/data_preprocess -h
+
+```
+
+The result can be viwed inside data/sample.info file
+
+
