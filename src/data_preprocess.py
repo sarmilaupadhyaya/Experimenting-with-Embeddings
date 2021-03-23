@@ -94,7 +94,7 @@ def main():
     info_data.write("Tags:"+"\n")
     total_tags = sum(list(tag_dictionary.values()))
     for k, v in tag_dictionary.items():
-        info_data.write(k.strip()+ "\t" + str(v/total_tags)+"\n")
+        info_data.write(k.strip()+ "\t" + str(round(v/total_tags, 2))+"%\n")
 
 main()
 
