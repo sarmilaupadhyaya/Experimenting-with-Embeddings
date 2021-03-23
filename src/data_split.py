@@ -7,7 +7,7 @@ import argparse
 
 def get_sentences(tsv_datapath):
     
-    df = open(tsv_datapath,"r").readlines()
+    df = open(tsv_datapath,"r").readlines()[1:]
     words = []
     tags = []
     sentences = []
