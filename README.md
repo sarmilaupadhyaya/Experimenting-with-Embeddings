@@ -120,3 +120,51 @@ The runtime for saving training, test and validation is respectively ~2 hour, 36
 The default batch size is 32, but one can try more. In our system 64 batch size crashed. This could be avoided by passing single sentence and saving embeddings. 
 
 
+
+
+##MODELS
+
+
+inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
+
+The script to train the model and test is train_test.py
+
+All the argument in this script is set into default value. If you want to run the train or test then , run script:
+
+```
+python train_test.py -h
+
+```
+```
+
+usage: train_test.py [-h] [-tagsid_path TAGSID_PATH] [-embedding_dir EMBEDDING_DIR] [-model_type MODEL_TYPE] [-run_type RUN_TYPE] [-hidden_dimension HIDDEN_DIMENSION] [-n_layers N_LAYERS]
+                     [-dropout DROPOUT] [-epochs EPOCHS] [-optimizer OPTIMIZER] [-lr LR] [-saved_model SAVED_MODEL]
+
+training and testing the model
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -tagsid_path TAGSID_PATH
+                        -path of pickle file for tag id
+  -embedding_dir EMBEDDING_DIR
+                        directory where you have saved the embeddings
+  -model_type MODEL_TYPE
+                        its either bilstm, lstm, gru or rnn
+  -run_type RUN_TYPE    either train or test
+  -hidden_dimension HIDDEN_DIMENSION
+                        number of hidden dimension
+  -n_layers N_LAYERS    number of layers
+  -dropout DROPOUT      number of layers
+  -epochs EPOCHS        number of epochs
+  -optimizer OPTIMIZER  adam or sdg
+  -lr LR                learning rate
+  -saved_model SAVED_MODEL
+                        model to test
+
+
+
+```
+
+The training is not recommended as it would take around 10-15 minutes for different model. However, if model is trained, it will be saved in the data/output directory
+
+
