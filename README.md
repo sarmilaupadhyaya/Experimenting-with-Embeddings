@@ -8,6 +8,7 @@
 - [PROJECT STRUCTURE](#PROJECTSTRUCTURE): File structure of project
 - [STEPS TOWARDS TAGGING](#STEPSTOWARDSTAGGING):
 - - [Data Preprocessing](##Data-Preprocessing): POS extraction, aggregation
+- - [Data Concatenating and Splitting] (##DATA-Concat-and-Split)
 - - [Tokenization & Embedding](##Tokenization-&-Embedding): embedding creation
 - - [Models](##Models): training
 
@@ -57,6 +58,65 @@ python src/data_preprocess -h
 
 ```
 
-The result can be viwed inside data/sample.info file
+```
+usage: data_preprocess.py [-h] conll output_file output_info
+
+conll format preprocessing
+
+positional arguments:
+  conll        conll format file
+  output_file  name of the output file to be saved
+  output_info  name of the output file to be save information about data
+
+```
+
+The result can be viewed inside data/sample.info file
+
+##DATA-Concat-and-Split
+
+This step is to generate sentences and tags together which is taken by dataloader in next step. Then, this file is saved as final_sample.tsv. Then, train, test and validation split is done manually and saved as train.csv, test,csv and validate.tsv. These files are inside data/ folder and hardcoded to dataloader. The distribution of train, test and validate dataset are: 60, 20 and 20 percent respectively.
+
+
+```
+python3 src/data_split.py -h
+```
+```
+getting sentences in each line and splitting into train, test and validation data
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -tsv_datapath TSV_DATAPATH
+                        path of the sample tsv created through data preprocess file
+
+
+```
+
+##Tokenization & Embedding
+
+The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
+
+```
+python src/embeddings - h
+
+```
+sage: embedding.py [-h] [-tokenizer TOKENIZER] [-embedding_dir EMBEDDING_DIR]
+                    [-batch_size BATCH_SIZE] [-model_name MODEL_NAME]
+
+getting embedding for each sentences and saving as pickle
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -tokenizer TOKENIZER  -name of the bert tokenizer
+  -embedding_dir EMBEDDING_DIR
+                        directory where you want to save the embeddings
+  -batch_size BATCH_SIZE
+                        batch size in which data should be saved as pickle. Recommended 32
+  -model_name MODEL_NAME
+                        name of the bert pretrained model
+```
+
+The runtime for saving training, test and validation is respectively ~2 hour, 36 minutes and 39 minutes. This metric is when saved in system with 16 GB RAM. The embedding takes 12 GB RAM and 58 GB Disk space.
+
+The default batch size is 32, but one can try more. In our system 64 batch size crashed. This could be avoided by passing single sentence and saving embeddings. 
 
 
