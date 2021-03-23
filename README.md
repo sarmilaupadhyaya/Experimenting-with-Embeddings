@@ -1,4 +1,4 @@
-# Implementing Pretrained BERT EMBEDDING layer for Part of Speech tagging using differnt models and their comparision
+# Implementing Pretrained BERT EMBEDDING layer for Part of Speech tagging using differnt models and their comparison
 
 
 ## Table of Contents
@@ -6,15 +6,36 @@
 - [Introduction](#Introduction): information about this project
 - [Setup](#Setup): How to set up the project
 - [Project Structure](#Project-Structure): File structure of project
-- [Steps Towards Tagging](#Steps-Towards-Tagging): NLP Pipelines
 - - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
-- - [Data Concat and Split] (#Data-Concat-and-Split)
+- - [Data Concat and Split](#Data-Concat-and-Split)
 - - [Tokenization and Embedding](#Tokenization-and-Embedding): embedding creation
 - - [Models](#Models): training
 
 ## Introduction
 
 This is the project submitted to Neural Network class of winter 2020. It is an implementation of sequence labelling task for english sentences. We preprocess the data, extract the embedding using bert pretrained model and tokenizer then train the model in different architecture like RNN, LSTM, GRU and BILSTM. The main research idea is to compare the performance of model with each other and also analyse the effect of changing hyperparameters in these model.
+
+#Project Structure
+
+```
+src/
+├── data
+│   ├── extract_pos.sh   # preprocessing to TSV
+│   ├── info.py          # preprocessing summary
+│   ├── ontonotes.py     # complex data loader
+├── embedding.py         # computes and stores BERT embeddings
+├── test.py              # evaluation on test data
+├── test_continuous.py   # evaluation of multiple models on test data
+├── train.py             # training of multiple models
+├── utils.py             # misc. utilities
+└── zoo                  # model zoo
+    ├── __init__.py      # model factory, parameter definition
+    ├── cnn.py           # CNN model
+    ├── dense.py         # dense layers model
+    ├── evaluatable.py   # model base class
+    ├── majority.py      # majority class classifier
+    └── rnn.py           # RNN/LSTM/GRU model
+```
 
 
 # Setup
