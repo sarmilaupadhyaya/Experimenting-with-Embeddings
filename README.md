@@ -8,7 +8,7 @@
 - [PROJECT STRUCTURE](#PROJECT-STRUCTURE): File structure of project
 - [STEPS TOWARDS TAGGING](#STEPS-TOWARDS-TAGGING):
 - - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
-- - [Data Concat and Splitting] (#DATA-Concat-and-Split)
+- - [Data Concat and Split] (#DATA-Concat-and-Split)
 - - [Tokenization and Embedding](#Tokenization-and-Embedding): embedding creation
 - - [Models](#Models): training
 
