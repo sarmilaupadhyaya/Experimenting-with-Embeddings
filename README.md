@@ -7,8 +7,8 @@
 - [Setup](#Setup): How to set up the project
 - [Project Structure](#Project-Structure): File structure of project
 - - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
-- - [Data Concat and Split](#Data-Concat-and-Split)
-- - [Tokenization and Embedding](#Tokenization-and-Embedding): embedding creation
+- - [Data Concat And Split](#Data-Concat-And-Split)
+- - [Tokenization And Embedding](#Tokenization-And-Embedding): embedding creation
 - - [Models](#Models): training
 
 ## Introduction
@@ -96,7 +96,7 @@ positional arguments:
 
 The result can be viewed inside data/sample.info file
 
-#Data-Concat-and-Split
+#Data-Concat-And-Split
 
 This step is to generate sentences and tags together which is taken by dataloader in next step. Then, this file is saved as final_sample.tsv. Then, train, test and validation split is done manually and saved as train.csv, test,csv and validate.tsv. These files are inside data/ folder and hardcoded to dataloader. The distribution of train, test and validate dataset are: 60, 20 and 20 percent respectively.
 
@@ -116,7 +116,7 @@ optional arguments:
 ```
 
 
-#Tokenization-and-Embedding
+#Tokenization-And-Embedding
 
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
 
