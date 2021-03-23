@@ -5,12 +5,12 @@
 
 - [INTRODUCTION](#INTRODUCTION): information about this project
 - [SETUP](#SETUP): How to set up the project
-- [PROJECT STRUCTURE](#PROJECTSTRUCTURE): File structure of project
-- [STEPS TOWARDS TAGGING](#STEPSTOWARDSTAGGING):
-- - [Data Preprocessing](##Data-Preprocessing): POS extraction, aggregation
-- - [Data Concatenating and Splitting] (##DATA-Concat-and-Split)
-- - [Tokenization & Embedding](##Tokenization-&-Embedding): embedding creation
-- - [Models](##Models): training
+- [PROJECT STRUCTURE](#PROJECT-STRUCTURE): File structure of project
+- [STEPS TOWARDS TAGGING](#STEPS-TOWARDS-TAGGING):
+- - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
+- - [Data Concatenating and Splitting] (#DATA-Concat-and-Split)
+- - [Tokenization & Embedding](#Tokenization-and-Embedding): embedding creation
+- - [Models](#Models): training
 
 ## INTRODUCTION
 
@@ -37,7 +37,7 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 #STEPS TOWARDS TAGGING
 Here are four tasks performed in this project. You can run them individually or at once. 
 
-## Data Preprocessing
+## Data-Preprocessing
 
 - This step concatenate all files into one,
 Script is: `cat data/ontonetes-4.0/*.gold_conll > data/all.conll`. Remember the conll file should be inside data/ontonetes-4.0
@@ -91,7 +91,7 @@ optional arguments:
 
 ```
 
-##Tokenization & Embedding
+##Tokenization-and-Embedding
 
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
 
