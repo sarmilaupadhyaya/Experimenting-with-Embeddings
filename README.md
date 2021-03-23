@@ -40,8 +40,46 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 
 
 #Project-Structure
-pass
-
+----src
+    |
+    |
+    ---- embeddings.py #code to tokenize and embedding extraction
+    |
+    |
+    ---- data_preproces.py #script to read conll file and convert to tsv with three column
+    |
+    |
+    ---- data_split.py #script to concatenate words to sentence ans split into train, test and validation
+    |
+    |
+    ---- dataset_loader.py #script to make data loader
+    |
+    |
+    ---- train_test.py #script to train and test the models
+    |
+    |
+    ---- models.py #script containing classes of different models
+    |
+    |
+----data
+    |
+    |
+    ---- sample.info #output of data preprocess giving summary of data and tags
+    |
+    |
+    ---- output #directory to save models
+    |
+    |
+    ---- embeddings #directory to save embeddings
+    |
+    |
+----environment.yaml #file containing requirements for virtual environment
+    |
+    |
+-----README.md
+    |
+    |
+----run.sh #bash file to run data preprocess    
 
 #Steps-Towards-Tagging
 Here are four tasks performed in this project. You can run them individually or at once. 
@@ -178,5 +216,13 @@ optional arguments:
 ```
 
 The training is not recommended as it would take around 10-15 minutes for different model. However, if model is trained, it will be saved in the data/output directory
+We could not present result analysis for different hyperparameters but we can pass the appropriate parameter to the script "src/train_test.py" in order to get the result. 
+To run whole project, following steps are required:
 
+1. get the conll file by concatenating al conll file
+2. run script ```./run.sh``` to preprocess and get a tsv file inside data folder.
+3. run the ``` python3 src/data_split.py ```. pass the appropriate tsv file from step 2
+4. step 3 will create the three tsv, train, test and validation. The run ```python3 src/embeddings.py```, make sure you have existing embeddings folder inside the data folder.
+5. step 4 train the model running ```python3 src/train_test.py ```. pass the appropriate parameters. Make sure you have output folder inside /data.
+6. file created in the step 4 can be used for testing. Run ``` python3 src/train_test.py -run_type test -saved_model <file from step 5>
 
