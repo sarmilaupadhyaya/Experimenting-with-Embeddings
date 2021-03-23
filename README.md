@@ -18,23 +18,6 @@ This is the project submitted to Neural Network class of winter 2020. It is an i
 #Project Structure
 
 ```
-src/
-├── data
-│   ├── extract_pos.sh   # preprocessing to TSV
-│   ├── info.py          # preprocessing summary
-│   ├── ontonotes.py     # complex data loader
-├── embedding.py         # computes and stores BERT embeddings
-├── test.py              # evaluation on test data
-├── test_continuous.py   # evaluation of multiple models on test data
-├── train.py             # training of multiple models
-├── utils.py             # misc. utilities
-└── zoo                  # model zoo
-    ├── __init__.py      # model factory, parameter definition
-    ├── cnn.py           # CNN model
-    ├── dense.py         # dense layers model
-    ├── evaluatable.py   # model base class
-    ├── majority.py      # majority class classifier
-    └── rnn.py           # RNN/LSTM/GRU model
 ```
 
 
@@ -116,7 +99,7 @@ optional arguments:
 ```
 
 
-#Tokenization-&-Embedding
+#Tokenization Embedding
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
 
 
@@ -150,6 +133,7 @@ The default batch size is 32, but one can try more. In our system 64 batch size 
 
 
 #Models
+
 Inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
 
 The script to train the model and test is train_test.py
