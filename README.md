@@ -129,10 +129,10 @@ The default batch size is 32, but one can try more. In our system 64 batch size 
 
 
 
-##Models
+#Models
 
 
-inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
+Inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
 
 The script to train the model and test is train_test.py
 
