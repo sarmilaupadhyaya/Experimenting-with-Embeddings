@@ -65,7 +65,7 @@ class POSDataset(datasets.GeneratorBasedBuilder):
         # This method handles input defined in _split_generators to yield (key, example) tuples from the dataset.
         # The `key` is here for legacy reason (tfds) and is not important in itself.
 
-        data = open(filepath, "r").readlines()
+        data = open(filepath, "r").readlines()[1:]
         for row in data:
             row = row.split("\t")
             words = [x for x in row[1].strip().split(" ")]
