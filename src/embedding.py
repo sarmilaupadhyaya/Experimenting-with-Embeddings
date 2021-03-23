@@ -9,6 +9,14 @@ from torch.utils.data import DataLoader
 global label_to_id
 global tokenizer
 
+
+from itertools import groupby
+
+def all_equal(iterable):
+    g = groupby(iterable)
+    return next(g, True) and not next(g, False)
+
+
 def get_label_list(labels):
     """
 
@@ -79,25 +87,25 @@ def save_embedding(datatype, model, dataset, embedding_dir, batch_size):
             num_proc=2,
             load_from_cache_file=True
         )
+
     databatches = get_batchsize(tokenized_data, batch_size)
     embeddings = []
     count = 0
     for i, dataset in enumerate(databatches):
-
         copy_dataset = dict()
         copy_dataset["labels"] = dataset["labels"].copy()
 
         first_input, second_input = dataset["input_ids"][:int(batch_size/2)], dataset["input_ids"]\
                 [int(batch_size/2):]
         output = model(
-                    torch.LongTensor(first_input),
+                    torch.IntTensor(first_input).narrow(1,0,270),
         output_hidden_states=True
             )
         embeddings = output.hidden_states[0]
         del output
         if len(second_input) >0:
             output = model(
-            torch.LongTensor(second_input),
+            torch.IntTensor(second_input).narrow(1,0,270),
             output_hidden_states=True
             )
             embeddings = torch.cat((embeddings, output.hidden_states[0]), 0)
@@ -108,8 +116,7 @@ def save_embedding(datatype, model, dataset, embedding_dir, batch_size):
         
         with open(embedding_dir +datatype +str(i) +'.pickle', 'wb') as handle:
             pickle.dump(copy_dataset, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-            del copy_dataset
+        del copy_dataset
         count += 1
         print(datatype + " embedding saved: "+  str(count))
 
@@ -120,22 +127,26 @@ def main():
     parser = argparse.ArgumentParser(description='getting embedding for each sentences and saving as pickle')
     parser.add_argument('-tokenizer',type=str,
                     help="-name of the bert tokenizer", default = "bert-base-cased")
-    parser.add_argument('-embedding_dir',default = "data/embeddings/",type=str,help='directory where you want to save the embeddings')
+    parser.add_argument('-embedding_dir',default = "data/embeddings2/",type=str,help='directory where you want to save the embeddings')
     parser.add_argument('-batch_size',default = 32,type=str,help='batch size in which data should be saved as pickle. Recommended 32')
     parser.add_argument('-model_name',default ="bert-base-cased",type=str,help='name of the bert pretrained model')
     args = parser.parse_args()
     
     global tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
-	     args.tokenizer,
-	    )
+    	     args.tokenizer,
+    
+    )
 	
     print("tokenizer leaded")
+    
+
     model = BertModel.from_pretrained(args.model_name)
     print("bert model loaded")
-    dataset = load_dataset('dataset_loader.py')
+
+
     print("dataset loaded")
-    
+    dataset = load_dataset('dataset_loader.py')   
     label_list = get_label_list(dataset["train"]["tags"]+dataset["validation"]["tags"]+dataset["test"]["tags"])
     global label_to_id
     label_to_id = {l: i for i, l in enumerate(label_list)}
