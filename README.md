@@ -3,21 +3,21 @@
 
 ## Table of Contents
 
-- [INTRODUCTION](#INTRODUCTION): information about this project
-- [SETUP](#SETUP): How to set up the project
-- [PROJECT STRUCTURE](#PROJECT-STRUCTURE): File structure of project
-- [STEPS TOWARDS TAGGING](#STEPS-TOWARDS-TAGGING):
+- [Introduction](#Introductiom): information about this project
+- [Setup](#Setup): How to set up the project
+- [Project Structure](#Project-Structure): File structure of project
+- [Steps Towards Tagging](#Steps-Towards-Tagging):
 - - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
-- - [Data Concat and Split] (#DATA-Concat-and-Split)
+- - [Data Concat and Split] (#Data-Concat-and-Split)
 - - [Tokenization and Embedding](#Tokenization-and-Embedding): embedding creation
 - - [Models](#Models): training
 
-## INTRODUCTION
+## Introduction
 
 This is the project submitted to Neural Network class of winter 2020. It is an implementation of sequence labelling task for english sentences. We preprocess the data, extract the embedding using bert pretrained model and tokenizer then train the model in different architecture like RNN, LSTM, GRU and BILSTM. The main research idea is to compare the performance of model with each other and also analyse the effect of changing hyperparameters in these model.
 
 
-# SETUP
+# Setup
 
 - using pip
 
@@ -36,7 +36,7 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 
 
 
-#STEPS TOWARDS TAGGING
+#Steps-Towards-Tagging
 Here are four tasks performed in this project. You can run them individually or at once. 
 
 ## Data-Preprocessing
@@ -91,8 +91,6 @@ optional arguments:
   -h, --help            show this help message and exit
   -tsv_datapath TSV_DATAPATH
                         path of the sample tsv created through data preprocess file
-
-
 ```
 
 
@@ -106,6 +104,7 @@ python src/embeddings - h
 
 ```
 
+```
 Usage: embedding.py [-h] [-tokenizer TOKENIZER] [-embedding_dir EMBEDDING_DIR]
                     [-batch_size BATCH_SIZE] [-model_name MODEL_NAME]
 
@@ -129,7 +128,7 @@ The default batch size is 32, but one can try more. In our system 64 batch size 
 
 
 
-##MODELS
+##Models
 
 
 inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
@@ -145,7 +144,6 @@ python train_test.py -h
 ```
 
 ```
-
 usage: train_test.py [-h] [-tagsid_path TAGSID_PATH] [-embedding_dir EMBEDDING_DIR] [-model_type MODEL_TYPE] [-run_type RUN_TYPE] [-hidden_dimension HIDDEN_DIMENSION] [-n_layers N_LAYERS]
                      [-dropout DROPOUT] [-epochs EPOCHS] [-optimizer OPTIMIZER] [-lr LR] [-saved_model SAVED_MODEL]
 
@@ -169,7 +167,6 @@ optional arguments:
   -lr LR                learning rate
   -saved_model SAVED_MODEL
                         model to test
-
 ```
 
 The training is not recommended as it would take around 10-15 minutes for different model. However, if model is trained, it will be saved in the data/output directory
