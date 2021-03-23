@@ -20,12 +20,14 @@ This is the project submitted to Neural Network class of winter 2020. It is an i
 # SETUP
 
 - using pip
+
 ```
 virtualenv <envname>
 pip install -r environment.yaml
 ```
 
 - using conda
+
 ```
 conda env update --file environment.yaml
 ```
@@ -80,6 +82,8 @@ This step is to generate sentences and tags together which is taken by dataloade
 ```
 python3 src/data_split.py -h
 ```
+
+
 ```
 getting sentences in each line and splitting into train, test and validation data
 
@@ -91,15 +95,18 @@ optional arguments:
 
 ```
 
+
 ##Tokenization-and-Embedding
 
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
+
 
 ```
 python src/embeddings - h
 
 ```
-sage: embedding.py [-h] [-tokenizer TOKENIZER] [-embedding_dir EMBEDDING_DIR]
+
+Usage: embedding.py [-h] [-tokenizer TOKENIZER] [-embedding_dir EMBEDDING_DIR]
                     [-batch_size BATCH_SIZE] [-model_name MODEL_NAME]
 
 getting embedding for each sentences and saving as pickle
@@ -131,10 +138,12 @@ The script to train the model and test is train_test.py
 
 All the argument in this script is set into default value. If you want to run the train or test then , run script:
 
+
 ```
 python train_test.py -h
 
 ```
+
 ```
 
 usage: train_test.py [-h] [-tagsid_path TAGSID_PATH] [-embedding_dir EMBEDDING_DIR] [-model_type MODEL_TYPE] [-run_type RUN_TYPE] [-hidden_dimension HIDDEN_DIMENSION] [-n_layers N_LAYERS]
@@ -160,8 +169,6 @@ optional arguments:
   -lr LR                learning rate
   -saved_model SAVED_MODEL
                         model to test
-
-
 
 ```
 
