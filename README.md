@@ -5,8 +5,8 @@
 
 - [INTRODUCTION](#INTRODUCTION): information about this project
 - [SETUP](#SETUP): How to set up the project
-- [PROJECT STRUCTURE](PROJECT STRUCTURE): File structure of project
-- STEPS TOWARDS TAGGING(#STEPS TOWARDS TAGGING):
+- [PROJECT STRUCTURE](#PROJECT STRUCTURE): File structure of project
+- [STEPS TOWARDS TAGGING](#STEPS TOWARDS TAGGING):
 - - [Data Preprocessing](##Data-Preprocessing): POS extraction, aggregation
 - - [Tokenization & Embedding](##Tokenization-&-Embedding): embedding creation
 - - [Models](##Models): training
