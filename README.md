@@ -7,8 +7,8 @@
 - [Setup](#Setup): How to set up the project
 - [Project Structure](#Project-Structure): File structure of project
 - - [Data Preprocessing](#Data-Preprocessing): POS extraction, aggregation
-- - [Data Concat And Split](#Data-Concat-And-Split)
-- - [Tokenization And Embedding](#Tokenization-And-Embedding): embedding creation
+- - [Data Concat & Split](#Data-Concat-&-Split)
+- - [Tokenization & Embedding](#Tokenization-&-Embedding): embedding creation
 - - [Models](#Models): training
 
 ## Introduction
@@ -116,8 +116,7 @@ optional arguments:
 ```
 
 
-#Tokenization-And-Embedding
-
+#Tokenization-&-Embedding
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
 
 
@@ -151,8 +150,6 @@ The default batch size is 32, but one can try more. In our system 64 batch size 
 
 
 #Models
-
-
 Inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
 
 The script to train the model and test is train_test.py
