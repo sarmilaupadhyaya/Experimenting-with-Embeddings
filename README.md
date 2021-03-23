@@ -38,11 +38,14 @@ conda env update --file environment.yaml
 
 We haven't used the GPU so this project works on CPU only. But modification can be done to use GPU which shall be implemented in further days in the same REPO.
 
+
 #Project-Structure
 pass
 
+
 #Steps-Towards-Tagging
 Here are four tasks performed in this project. You can run them individually or at once. 
+
 
 ## Data-Preprocessing
 
@@ -79,6 +82,7 @@ positional arguments:
 
 The result can be viewed inside data/sample.info file
 
+
 #Data-Concat-And-Split
 
 This step is to generate sentences and tags together which is taken by dataloader in next step. Then, this file is saved as final_sample.tsv. Then, train, test and validation split is done manually and saved as train.csv, test,csv and validate.tsv. These files are inside data/ folder and hardcoded to dataloader. The distribution of train, test and validate dataset are: 60, 20 and 20 percent respectively.
@@ -97,6 +101,7 @@ optional arguments:
   -tsv_datapath TSV_DATAPATH
                         path of the sample tsv created through data preprocess file
 ```
+
 
 
 #Tokenization Embedding
