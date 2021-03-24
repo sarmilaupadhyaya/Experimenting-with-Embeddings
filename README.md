@@ -41,6 +41,8 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 
 # Project-Structure
 
+```
+
 ├── data  # data
 ├
 ├── src├ # Source code for preprocessing, tokenization
@@ -62,6 +64,7 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 ├── run.sh            #script to run data preprocessing
 ├
 └── README.md         #read me
+```
 
 #Steps-Towards-Tagging
 Here are four tasks performed in this project. You can run them individually or at once. 
