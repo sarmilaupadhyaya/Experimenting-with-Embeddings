@@ -42,15 +42,25 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 # Project-Structure
 
 ├── data  # data
+├
 ├── src├ # Source code for preprocessing, tokenization
+├
 ├      ├──data_preprocessing.py #script to preprocess data
+├      ├
 ├      ├──dataset_loader.py   #loading data using dataloader       
+├      ├
 ├      ├──data_split.py    #splitting data       
+├      ├
 ├      ├──embedding.py     #extracts and save embedding for sentence       
+├      ├
 ├      ├── models.py    #defines classes for different models     
+├      ├
 ├      ├── train_test.py  #training and testing code                         
+├      ├
 ├── environment.yaml  #requirements
+├
 ├── run.sh            #script to run data preprocessing
+├
 └── README.md         #read me
 
 #Steps-Towards-Tagging
