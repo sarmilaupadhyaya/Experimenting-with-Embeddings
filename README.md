@@ -39,7 +39,7 @@ conda env update --file environment.yaml
 We haven't used the GPU so this project works on CPU only. But modification can be done to use GPU which shall be implemented in further days in the same REPO.
 
 
-#Project-Structure
+# Project-Structure
 
 
 ----src
