@@ -177,7 +177,7 @@ The default batch size is 32, but one can try more. In our system 64 batch size 
 
 
 
-#Models
+# Models
 
 Inside the models.py script we have 4 models namely, LSTM, BILSTM, GRU and RNN.
 
