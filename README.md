@@ -41,47 +41,17 @@ We haven't used the GPU so this project works on CPU only. But modification can 
 
 # Project-Structure
 
-
-----src
-    |
-    |
-    ---- embeddings.py #code to tokenize and embedding extraction
-    |
-    |
-    ---- data_preproces.py #script to read conll file and convert to tsv with three column
-    |
-    |
-    ---- data_split.py #script to concatenate words to sentence ans split into train, test and validation
-    |
-    |
-    ---- dataset_loader.py #script to make data loader
-    |
-    |
-    ---- train_test.py #script to train and test the models
-    |
-    |
-    ---- models.py #script containing classes of different models
-    |
-    |
-----data
-    |
-    |
-    ---- sample.info #output of data preprocess giving summary of data and tags
-    |
-    |
-    ---- output #directory to save models
-    |
-    |
-    ---- embeddings #directory to save embeddings
-    |
-    |
-----environment.yaml #file containing requirements for virtual environment
-    |
-    |
------README.md
-    |
-    |
-----run.sh #bash file to run data preprocess    
+├── data                   # data
+├── src├                 # Source code for preprocessing, tokenization
+├      ├──data_preprocessing.py #script to preprocess data
+├      ├──dataset_loader.py   #loading data using dataloader       
+├      ├──data_split.py    #splitting data       
+├      ├──embedding.py     #extracts and save embedding for sentence       
+├      ├── models.py    #defines classes for different models     
+├      ├── train_test.py  #training and testing code                         
+├── environment.yaml                   #requirements
+├── run.sh                 #script to run data preprocessing
+└── README.md              #read me
 
 #Steps-Towards-Tagging
 Here are four tasks performed in this project. You can run them individually or at once. 
