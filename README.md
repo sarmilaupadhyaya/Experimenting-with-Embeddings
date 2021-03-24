@@ -123,7 +123,7 @@ positional arguments:
 The result can be viewed inside data/sample.info file
 
 
-#Data-Concat
+# Data-Concat
 
 This step is to generate sentences and tags together which is taken by dataloader in next step. Then, this file is saved as final_sample.tsv. Then, train, test and validation split is done manually and saved as train.csv, test,csv and validate.tsv. These files are inside data/ folder and hardcoded to dataloader. The distribution of train, test and validate dataset are: 60, 20 and 20 percent respectively.
 
@@ -144,7 +144,7 @@ optional arguments:
 
 
 
-#Tokenization-Embedding
+# Tokenization-Embedding
 The script to load the dataset , tokenize and save it in embedding directory is inside src/embeddings.py. This script takes default arguments because of lack of memory space to perform embedding by loading bert model in different batch size. Arguments can be seen as:
 
 
