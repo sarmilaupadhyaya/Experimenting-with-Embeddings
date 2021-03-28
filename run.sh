@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python src/data_preprocess.py data/sample.conll data/sample.tsv data/sample.info
+python src/data_preprocess.py src/data/all.conll src/data/sample.tsv src/data/sample.info
