@@ -2,6 +2,7 @@ import argparse
 import os
 import time
 import random
+import wandb
 import pickle5 as pickle
 import torch.nn as nn
 import torch.optim as optim
@@ -103,6 +104,8 @@ def train(epochs, embedding_dir, model, optimizer, criterion,model_type, n_layer
 
         print("EPOCH "+ str(i) + " Training LOSS: " + str(epoch_loss/count))
         print("EPOCH "+ str(i) + " Training ACCURACY: " + str(epoch_acc/count))
+        wandb.log({"train_loss": epoch_loss/count})
+        wandb.log({"train_acc": epoch_acc/count})
         del train_batches
         import gc
         gc.collect()
@@ -121,6 +124,10 @@ def train(epochs, embedding_dir, model, optimizer, criterion,model_type, n_layer
 
         print("EPOCH "+ str(i) + " Validation LOSS: " +  str(sum(val_loss)/len(val_loss)))
         print("EPOCH "+ str(i) + " Validation ACCURACY: " + str(sum(val_acc)/len(val_acc)))
+
+        wandb.log({"val_loss": val_loss/len(val_loss)})
+        wandb.log({"val_acc": val_acc/len(val_acc)})
+
     path = save_model(model, model_type, n_layers,hidden_dim,dropout)
 
     if path:
