@@ -11,7 +11,7 @@ def get_sentences(tsv_datapath):
     words = []
     tags = []
     sentences = []
-    data = open("data/final_sample.tsv","w")
+    data = open("src/data/final_sample.tsv","w")
 
     data.write("id\twords\ttags\n")
     sen_id = 0
@@ -26,7 +26,7 @@ def get_sentences(tsv_datapath):
             words.append(row[1].strip())
             tags.append(row[2].strip())
 
-    return "data/final_sample.tsv"
+    return "src/data/final_sample.tsv"
 
 
 
@@ -40,9 +40,9 @@ def split_data(datapath):
             np.split(data[1:],
                        [int(.6*len(data)), int(.8*len(data))])
     header = data[0]
-    train_path = "data/train.tsv"
-    validate_d = "data/validate.tsv"
-    test_d = "data/test.tsv"
+    train_path = "src/data/train.tsv"
+    validate_d = "src/data/validate.tsv"
+    test_d = "src/data/test.tsv"
 
     train_d= open(train_path, "w")
     validate_d= open(validate_d, "w")
@@ -67,7 +67,7 @@ def split_data(datapath):
 if __name__=="__main__":
 
     parser = argparse.ArgumentParser(description='getting sentences in each line and splitting into train, test and validation data')
-    parser.add_argument('-tsv_datapath',default ="data/sample.tsv",type=str,help='path of the sample tsv created through data preprocess file')
+    parser.add_argument('-tsv_datapath',default ="src/data/sample.tsv",type=str,help='path of the sample tsv created through data preprocess file')
     args = parser.parse_args()
 
     final_path = get_sentences(args.tsv_datapath)
