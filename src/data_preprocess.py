@@ -29,7 +29,7 @@ def main():
     
     parser = argparse.ArgumentParser(description='conll format preprocessing')
     parser.add_argument('conll',type=str,
-                    help='conll format file', default = "sample/all.txt")
+                    help='conll format file', default = "sample/all.conll")
     parser.add_argument('output_file',default = "sample.tsv",type=str,help='name of the output file to be saved')
     parser.add_argument('output_info',default = "sample.info",type=str,help='name of the output file to be save information about data')
     args = parser.parse_args()
