@@ -127,7 +127,7 @@ def main():
     parser = argparse.ArgumentParser(description='getting embedding for each sentences and saving as pickle')
     parser.add_argument('-tokenizer',type=str,
                     help="-name of the bert tokenizer", default = "bert-base-cased")
-    parser.add_argument('-embedding_dir',default = "data/embeddings2/",type=str,help='directory where you want to save the embeddings')
+    parser.add_argument('-embedding_dir',default = "src/data/embeddings/",type=str,help='directory where you want to save the embeddings')
     parser.add_argument('-batch_size',default = 32,type=str,help='batch size in which data should be saved as pickle. Recommended 32')
     parser.add_argument('-model_name',default ="bert-base-cased",type=str,help='name of the bert pretrained model')
     args = parser.parse_args()
@@ -146,7 +146,7 @@ def main():
 
 
     print("dataset loaded")
-    dataset = load_dataset('dataset_loader.py')   
+    dataset = load_dataset("dataset_loader.py")   
     label_list = get_label_list(dataset["train"]["tags"]+dataset["validation"]["tags"]+dataset["test"]["tags"])
     global label_to_id
     label_to_id = {l: i for i, l in enumerate(label_list)}
