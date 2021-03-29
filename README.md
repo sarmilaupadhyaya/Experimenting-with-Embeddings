@@ -217,3 +217,5 @@ To run whole project, following steps are required:
 Trained the model after a week to add wandb because we didn't have resources to train whole data.
 
 [wandb-link](https://wandb.ai/sarmila433/LSTM%20Bert%20POS%20tagging?workspace=user-sarmila433)
+
+We trained on 2 layers of Bilstm and 128 hidden dimension, 0.25 dropout and 10 epoch training, result is not that good.
