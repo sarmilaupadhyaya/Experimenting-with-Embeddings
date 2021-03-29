@@ -81,6 +81,8 @@ def train(epochs, embedding_dir, model, optimizer, criterion,model_type, n_layer
     train_paths = find("train", embedding_dir)
     val_paths = find("validation", embedding_dir)
     print("TRAINING STARTED")
+    wandb.init(project="LSTM Bert POS tagging")
+    wandb.watch(model)
     for i in range(epochs):
         
         count  = 0
@@ -125,8 +127,8 @@ def train(epochs, embedding_dir, model, optimizer, criterion,model_type, n_layer
         print("EPOCH "+ str(i) + " Validation LOSS: " +  str(sum(val_loss)/len(val_loss)))
         print("EPOCH "+ str(i) + " Validation ACCURACY: " + str(sum(val_acc)/len(val_acc)))
 
-        wandb.log({"val_loss": val_loss/len(val_loss)})
-        wandb.log({"val_acc": val_acc/len(val_acc)})
+        wandb.log({"val_loss": sum(val_loss)/len(val_loss)})
+        wandb.log({"val_acc": sum(val_acc)/len(val_acc)})
 
     path = save_model(model, model_type, n_layers,hidden_dim,dropout)
 
@@ -181,17 +183,17 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser(description='training and testing the model')
     parser.add_argument('-tagsid_path',type=str,
-                    help="-path of pickle file for tag id", default = "data/embeddingnew/labelid.pickle")
-    parser.add_argument('-embedding_dir',default = "data/embeddings2/",type=str,help='directory where you want to save the embeddings')
+                    help="-path of pickle file for tag id", default = "src/data/embeddings/labelid.pickle")
+    parser.add_argument('-embedding_dir',default = "src/data/embeddings/",type=str,help='directory where you want to save the embeddings')
     parser.add_argument('-model_type',default = "gru",type=str,help='its either bilstm, lstm, gru or rnn')
     parser.add_argument('-run_type',default ="train",type=str,help='either train or test')
     parser.add_argument('-hidden_dimension',default =64,type=int,help='number of hidden dimension')
     parser.add_argument('-n_layers',default =1,type=int,help='number of layers')
     parser.add_argument('-dropout',default =0,type=float,help='number of layers')
-    parser.add_argument('-epochs',default =5,type=int,help='number of epochs')
+    parser.add_argument('-epochs',default =10,type=int,help='number of epochs')
     parser.add_argument('-optimizer',default ="adam",type=str,help='adam or sdg')
     parser.add_argument('-lr',default =0.1,type=int,help='learning rate')
-    parser.add_argument('-saved_model',default ="data/output/bilstm_1_64_0.h5",type=str,help='model to test')
+    parser.add_argument('-saved_model',default ="src/data/output/bilstm_1_64_0.h5",type=str,help='model to test')
 
     args = parser.parse_args()
     
