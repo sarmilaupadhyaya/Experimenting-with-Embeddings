@@ -211,3 +211,9 @@ To run whole project, following steps are required:
 5. step 4 train the model running ```python3 src/train_test.py ```. pass the appropriate parameters. Make sure you have output folder inside /data.
 6. file created in the step 4 can be used for testing. Run ``` python3 src/train_test.py -run_type test -saved_model <file from step 5>
 
+
+
+
+Trained the model after a week to add wandb because we didn't have resources to train whole data.
+
+[wandb-link](https://wandb.ai/sarmila433/LSTM%20Bert%20POS%20tagging?workspace=user-sarmila433)
